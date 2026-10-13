@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>寬達生技 Ground Biotech — 公司 HTML 入口</title>
+<style>
+  @font-face { font-family: "Taipei Sans TC Beta"; src: local("Taipei Sans TC Beta"), local("TaipeiSansTCBeta-Regular"); }
+  :root {
+    --blue:#7B97D3; --blue-deep:#4E6DB5; --paper:#F6F1E8; --card:#FFFFFF; --card2:#FBFAF7;
+    --tint:#E7EEF8; --line:#D6DEEB; --ink:#2B2B2B; --muted:#6B6F76; --gold:#C6A15B; --red:#C8402F;
+  }
+  * { box-sizing:border-box; }
+  html,body { margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Taipei Sans TC Beta","Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif; font-size:15px; line-height:1.6; }
+  header { background:var(--card); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:5; }
+  .wrap { max-width:1180px; margin:0 auto; padding:0 20px; }
+  .bar { display:flex; flex-wrap:wrap; align-items:center; gap:14px 24px; padding:14px 0; }
+  h1 { font-size:20px; margin:0; color:var(--blue-deep); font-weight:700; letter-spacing:.02em; }
+  h1 small { display:block; font-size:12px; color:var(--muted); font-weight:400; }
+  .search { flex:1 1 260px; max-width:460px; }
+  .search input { width:100%; padding:9px 12px; border:1px solid var(--line); border-radius:8px; font:inherit; background:var(--card2); color:var(--ink); }
+  .search input:focus { outline:2px solid var(--blue); border-color:var(--blue); }
+  .count { font-size:13px; color:var(--muted); white-space:nowrap; }
+  .note { margin:18px 0 6px; padding:12px 16px; background:var(--tint); border-left:3px solid var(--blue); border-radius:0 8px 8px 0; font-size:13.5px; color:#3b4252; }
+  .legend { display:flex; flex-wrap:wrap; gap:8px 14px; font-size:12.5px; color:var(--muted); margin:10px 0 4px; }
+  .legend .kind { margin-right:4px; }
+  .group { margin:26px 0 8px; }
+  h2 { font-size:16px; margin:0 0 12px; padding-bottom:8px; border-bottom:1px solid var(--gold); color:var(--blue-deep); display:flex; align-items:baseline; gap:10px; }
+  h2 .n { font-size:12px; color:var(--muted); font-weight:400; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:12px; }
+  .card { display:block; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; text-decoration:none; color:inherit;
+    transition:border-color .15s, box-shadow .15s, transform .15s; }
+  .card:hover { border-color:var(--blue); box-shadow:0 4px 14px rgba(78,109,181,.12); transform:translateY(-1px); }
+  .card-head { display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:4px; }
+  .code { font-size:12px; font-weight:700; color:var(--blue-deep); background:var(--tint); padding:2px 8px; border-radius:6px; letter-spacing:.03em; }
+  .kind { font-size:11.5px; padding:2px 8px; border-radius:999px; border:1px solid var(--line); color:var(--muted); background:var(--card2); white-space:nowrap; }
+  .k-cloud, .k-cloud-edit { color:var(--blue-deep); border-color:#B9C8EA; background:#EEF3FB; }
+  .k-local-edit { color:#7a5a1e; border-color:#E3CF9F; background:#FBF4E3; }
+  .name { font-size:15.5px; font-weight:700; margin:2px 0 4px; }
+  .desc { font-size:13px; color:#4a4f57; }
+  .meta { font-size:11.5px; color:var(--muted); margin-top:8px; word-break:break-all; }
+  .card.hide, .group.hide { display:none; }
+  .empty { display:none; text-align:center; color:var(--muted); padding:40px 0; }
+  .empty.show { display:block; }
+  footer { margin:40px 0 30px; padding-top:14px; border-top:1px solid var(--gold); font-size:12.5px; color:var(--muted); }
+  @media (max-width:600px) { .grid { grid-template-columns:1fr; } .bar { padding:10px 0; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <h1>寬達生技 Ground Biotech — 公司 HTML 入口<small>GitHub 鏡像 · 同步日 2026-10-09</small></h1>
+    <div class="search"><input id="q" type="search" placeholder="搜尋編號、名稱、說明或路徑…" autocomplete="off"></div>
+    <div class="count"><span id="shown">39</span> / 39 支</div>
+  </div>
+</header>
+<main class="wrap">
+  <div class="note">本 repo 是 OneDrive 正本的鏡像。雲端型面板開啟後即時讀 Supabase；單檔快照型的資料截至同步日。資料以 OneDrive 正本與雲端資料庫為準。</div>
+  <div class="legend">
+    <span><span class="kind k-cloud">雲端即時</span>開啟即讀雲端資料庫</span>
+    <span><span class="kind k-cloud-edit">雲端可編輯</span>網頁上可新增修改</span>
+    <span><span class="kind">單檔快照</span>資料內嵌，截至同步日</span>
+    <span><span class="kind k-local-edit">單機工具</span>原檔自存，此處僅瀏覽</span>
+    <span><span class="kind">規範／手冊</span>靜態文件</span>
+  </div>
+  
+  <section class="group">
+    <h2>採購與供應商 Purchasing<span class="n">6</span></h2>
+    <div class="grid">
+      <a class="card" href="%28C%29%20%E6%8E%A1%E8%B3%BC%E8%B3%87%E6%96%99%20Purchasing/A2-1a%20%E5%8F%B0%E7%81%A3%E7%94%A2%E5%93%81%E5%A0%B1%E5%83%B9%E8%B3%87%E6%96%99%E5%BA%AB.html" data-s="a2-1a 台灣產品報價資料庫 台灣線主資料庫（雲端 a21a）。三系統合併面板：產品報價庫／供應商名錄／報價單登記表；原廠與批發商價切換、賣過國家旗標。內含供應商銀行資料，請勿外流。 (c) 採購資料 purchasing/a2-1a 台灣產品報價資料庫.html">
+        <div class="card-head"><span class="code">A2-1a</span><span class="kind k-cloud" title="開啟即讀雲端資料庫，隨時最新">雲端即時</span></div>
+        <div class="name">台灣產品報價資料庫</div>
+        <div class="desc">台灣線主資料庫（雲端 a21a）。三系統合併面板：產品報價庫／供應商名錄／報價單登記表；原廠與批發商價切換、賣過國家旗標。內含供應商銀行資料，請勿外流。</div>
+        <div class="meta">(C) 採購資料 Purchasing/A2-1a 台灣產品報價資料庫.html · 11.3 MB</div>
+      </a>
+      <a class="card" href="%28C%29%20%E6%8E%A1%E8%B3%BC%E8%B3%87%E6%96%99%20Purchasing/A2-1c%20%E6%97%A5%E6%9C%AC%E7%94%A2%E5%93%81%E5%A0%B1%E5%83%B9%E8%B3%87%E6%96%99%E5%BA%AB.html" data-s="a2-1c 日本產品報價資料庫 日本線主資料庫（雲端 a21c，6,500 多品項含縮圖），jpy／usd 切換；分頁含報價單登記表。 (c) 採購資料 purchasing/a2-1c 日本產品報價資料庫.html">
+        <div class="card-head"><span class="code">A2-1c</span><span class="kind k-cloud" title="開啟即讀雲端資料庫，隨時最新">雲端即時</span></div>
+        <div class="name">日本產品報價資料庫</div>
+        <div class="desc">日本線主資料庫（雲端 a21c，6,500 多品項含縮圖），JPY／USD 切換；分頁含報價單登記表。</div>
+        <div class="meta">(C) 採購資料 Purchasing/A2-1c 日本產品報價資料庫.html · 16.5 MB</div>
+      </a>
+      <a class="card" href="%28C%29%20%E6%8E%A1%E8%B3%BC%E8%B3%87%E6%96%99%20Purchasing/%28I%29%20%E5%BA%AB%E5%AD%98%E7%AE%A1%E7%90%86%20Inventory%20Management/A3a-1%20OEM%E5%BA%AB%E5%AD%98%E7%B5%B1%E8%A8%88%E8%A1%A8.html" data-s="a3a-1 oem 庫存統計表 oem 包材庫存（雲端 a3a）：pi／pk 扣帳、留樣、警報線與 poem 採購單派號；待開採購單板塊。 (c) 採購資料 purchasing/(i) 庫存管理 inventory management/a3a-1 oem庫存統計表.html">
+        <div class="card-head"><span class="code">A3a-1</span><span class="kind k-cloud" title="開啟即讀雲端資料庫，隨時最新">雲端即時</span></div>
+        <div class="name">OEM 庫存統計表</div>
+        <div class="desc">OEM 包材庫存（雲端 a3a）：PI／PK 扣帳、留樣、警報線與 POEM 採購單派號；待開採購單板塊。</div>
+        <div class="meta">(C) 採購資料 Purchasing/(I) 庫存管理 Inventory Management/A3a-1 OEM庫存統計表.html · 482 KB</div>
+      </a>
+      <a class="card" href="%28C%29%20%E6%8E%A1%E8%B3%BC%E8%B3%87%E6%96%99%20Purchasing/A4-2%20%E6%8E%A1%E8%B3%BC%E9%80%B2%E5%BA%A6%E8%BF%BD%E8%B9%A4.html" data-s="a4-2 採購進度追蹤 採購單進度（雲端 a42）：進行中／到貨面板／已結束／金額統計，結關倒數與待匯款、退稅、取消標示。 (c) 採購資料 purchasing/a4-2 採購進度追蹤.html">
+        <div class="card-head"><span class="code">A4-2</span><span class="kind k-cloud" title="開啟即讀雲端資料庫，隨時最新">雲端即時</span></div>
+        <div class="name">採購進度追蹤</div>
+        <div class="desc">採購單進度（雲端 a42）：進行中／到貨面板／已結束／金額統計，結關倒數與待匯款、退稅、取消標示。</div>
+        <div class="meta">(C) 採購資料 Purchasing/A4-2 採購進度追蹤.html · 161 KB</div>
+      </a>
+      <a class="card" href="%28C%29%20%E6%8E%A1%E8%B3%BC%E8%B3%87%E6%96%99%20Purchasing/%28STW%29%20%E5%8F%B0%E7%81%A3%E4%BE%9B%E6%87%89%E5%95%86%E8%B3%87%E6%96%99%20Taiwan%20Supplier%20Folder/A4-3%20%E5%8F%B0%E7%81%A3%E6%89%B9%E7%99%BC%E5%95%86%E6%AF%94%E5%83%B9%E5%84%80%E8%A1%A8%E6%9D%BF%202026.09.30.html" data-s="a4-3 台灣批發商比價儀表板 同一品項在不同批發商／原廠的報價比較，供選供應商用（a21a 快照，2026.09.30）。 (c) 採購資料 purchasing/(stw) 台灣供應商資料 taiwan supplier folder/a4-3 台灣批發商比價儀表板 2026.09.30.html">
+        <div class="card-head"><span class="code">A4-3</span><span class="kind k-snapshot" title="資料內嵌於檔案，截至同步日">單檔快照</span></div>
+        <div class="name">台灣批發商比價儀表板</div>
+        <div class="desc">同一品項在不同批發商／原廠的報價比較，供選供應商用（a21a 快照，2026.09.30）。</div>
+        <div class="meta">(C) 採購資料 Purchasing/(STW) 台灣供應商資料 Taiwan Supplier Folder/A4-3 台灣批發商比價儀表板 2026.09.30.html · 1.1 MB</div>
+      </a>
+      <a class="card" href="%28C%29%20%E6%8E%A1%E8%B3%BC%E8%B3%87%E6%96%99%20Purchasing/A4-4%20%E7%94%A2%E5%93%81%E6%8E%A1%E8%B3%BC%E5%83%B9%E6%A0%BC%E6%AD%B7%E5%8F%B2.html" data-s="a4-4 產品採購價格歷史 各產品歷次採購價格走勢。 (c) 採購資料 purchasing/a4-4 產品採購價格歷史.html">
+        <div class="card-head"><span class="code">A4-4</span><span class="kind k-snapshot" title="資料內嵌於檔案，截至同步日">單檔快照</span></div>
+        <div class="name">產品採購價格歷史</div>
+        <div class="desc">各產品歷次採購價格走勢。</div>
+        <div class="meta">(C) 採購資料 Purchasing/A4-4 產品採購價格歷史.html · 5.3 MB</div>
+      </a>
+    </div>
+  </section>
+  <section class="group">
+    <h2>客戶與船務 Clients &amp; Shipping<span class="n">6</span></h2>
+    <div class="grid">
+      <a class="card" href="%28A%29%20%E5%AE%A2%E6%88%B6%E8%B3%87%E6%96%99%20Clients/A3-3%20%E8%88%B9%E5%8B%99%E9%80%B2%E5%BA%A6%E8%BF%BD%E8%B9%A4.html" data-s="a3-3 船務進度追蹤 出口訂單船務進度（雲端 a33_rows）：時間軸／表格／kpi／篩選／明細。 (a) 客戶資料 clients/a3-3 船務進度追蹤.html">
+        <div class="card-head"><span class="code">A3-3</span><span class="kind k-cloud" title="開啟即讀雲端資料庫，隨時最新">雲端即時</span></div>
+        <div class="name">船務進度追蹤</div>
+        <div class="desc">出口訂單船務進度（雲端 a33_rows）：時間軸／表格／KPI／篩選／明細。</div>
+        <div class="meta">(A) 客戶資料 Clients/A3-3 船務進度追蹤.html · 81 KB</div>
+      </a>
+      <a class="card" href="%28A%29%20%E5%AE%A2%E6%88%B6%E8%B3%87%E6%96%99%20Clients/A3-5%20%E8%A8%82%E5%96%AE%E8%AE%8A%E5%8B%95%E5%B1%A5%E6%AD%B7%20Order%20Change%20History.html" data-s="a3-5 訂單變動履歷 order change history pi／pk／ci／order form／採購單每份文件的建立、改版、改名履歷（a35_change_log）。 (a) 客戶資料 clients/a3-5 訂單變動履歷 order change history.html">
+        <div class="card-head"><span class="code">A3-5</span><span class="kind k-cloud" title="開啟即讀雲端資料庫，隨時最新">雲端即時</span></div>
+        <div class="name">訂單變動履歷 Order Change History</div>
+        <div class="desc">PI／PK／CI／Order Form／採購單每份文件的建立、改版、改名履歷（a35_change_log）。</div>
+        <div class="meta">(A) 客戶資料 Clients/A3-5 訂單變動履歷 Order Change History.html · 10 KB</div>
+      </a>
+      <a class="card" href="%28A%29%20%E5%AE%A2%E6%88%B6%E8%B3%87%E6%96%99%20Clients/A8-1%20%E5%AE%A2%E6%88%B6%E9%80%B2%E5%BA%A6%E8%BF%BD%E8%B9%A4.html" data-s="a8-1 客戶進度追蹤 共用事件圖的客戶層投影（雲端 a81）：客戶總覽與子事件。 (a) 客戶資料 clients/a8-1 客戶進度追蹤.html">
+        <div class="card-head"><span class="code">A8-1</span><span class="kind k-cloud" title="開啟即讀雲端資料庫，隨時最新">雲端即時</span></div>
+        <div class="name">客戶進度追蹤</div>
+        <div class="desc">共用事件圖的客戶層投影（雲端 a81）：客戶總覽與子事件。</div>
+        <div class="meta">(A) 客戶資料 Clients/A8-1 客戶進度追蹤.html · 1.1 MB</div>
+      </a>
+      <a class="card" href="%28A%29%20%E5%AE%A2%E6%88%B6%E8%B3%87%E6%96%99%20Clients/A8-3%20%E5%AE%A2%E6%88%B6%E9%8A%B7%E5%94%AE%E5%88%86%E6%9E%90%E9%9D%A2%E6%9D%BF.html" data-s="a8-3 客戶銷售分析面板 出口客戶出貨事件、件數與金額走勢（衍生報表，以活系統為準）。 (a) 客戶資料 clients/a8-3 客戶銷售分析面板.html">
+        <div class="card-head"><span class="code">A8-3</span><span class="kind k-snapshot" title="資料內嵌於檔案，截至同步日">單檔快照</span></div>
+        <div class="name">客戶銷售分析面板</div>
+        <div class="desc">出口客戶出貨事件、件數與金額走勢（衍生報表，以活系統為準）。</div>
+        <div class="meta">(A) 客戶資料 Clients/A8-3 客戶銷售分析面板.html · 998 KB</div>
+      </a>
+      <a class="card" href="%28A%29%20%E5%AE%A2%E6%88%B6%E8%B3%87%E6%96%99%20Clients/A8-4%20%E6%96%B0%E5%AE%A2%E6%88%B6%E9%96%8B%E7%99%BC%E8%BF%BD%E8%B9%A4.html" data-s="a8-4 新客戶開發追蹤 潛在客戶與新客戶開發進度（2026-10-01 自 a8-1 分出）。 (a) 客戶資料 clients/a8-4 新客戶開發追蹤.html">
+        <div class="card-head"><span class="code">A8-4</span><span class="kind k-cloud" title="開啟即讀雲端資料庫，隨時最新">雲端即時</span></div>
+        <div class="name">新客戶開發追蹤</div>
+        <div class="desc">潛在客戶與新客戶開發進度（2026-10-01 自 A8-1 分出）。</div>
+        <div class="meta">(A) 客戶資料 Clients/A8-4 新客戶開發追蹤.html · 105 KB</div>
+      </a>
+      <a class="card" href="%28A%29%20%E5%AE%A2%E6%88%B6%E8%B3%87%E6%96%99%20Clients/A_US%20%E7%BE%8E%E5%9C%8B%20%28Ebisu%29/%E7%BE%8E%E5%9C%8BEbisu_%E8%A3%9C%E8%B2%A8%E9%80%B1%E6%9C%9F%E5%88%86%E6%9E%90%E8%88%87%E8%A8%82%E5%96%AE%E9%A0%90%E5%88%A4_2026.10.01.html" data-s="ebisu 美國 ebisu 補貨週期分析與訂單預判 美國客戶 ebisu 的補貨週期與下單預判分析（2026.10.01）。 (a) 客戶資料 clients/a_us 美國 (ebisu)/美國ebisu_補貨週期分析與訂單預判_2026.10.01.html">
+        <div class="card-head"><span class="code">Ebisu</span><span class="kind k-snapshot" title="資料內嵌於檔案，截至同步日">單檔快照</span></div>
+        <div class="name">美國 Ebisu 補貨週期分析與訂單預判</div>
+        <div class="desc">美國客戶 Ebisu 的補貨週期與下單預判分析（2026.10.01）。</div>
+        <div class="meta">(A) 客戶資料 Clients/A_US 美國 (Ebisu)/美國Ebisu_補貨週期分析與訂單預判_2026.10.01.html · 1.5 MB</div>
+      </a>
+    </div>
+  </section>
+  <section class="group">
+    <h2>彰化工廠與倉庫 Changhua Factory &amp; Warehouse<span class="n">5</span></h2>
+    <div class="grid">
+      <a class="card" href="%E6%8E%83%E6%8F%8F/%28G%29%20%E5%BD%B0%E5%8C%96%E5%80%89%E5%BA%AB%E7%B4%80%E9%8C%84%E6%96%87%E4%BB%B6/A6-1%20%E8%B2%BF%E6%98%93%E5%85%A5%E5%BA%AB%E7%B4%80%E9%8C%84.html" data-s="a6-1 貿易入庫紀錄 倉庫收貨實測登記（雲端 a61）：採購預建列、倉管補實收／實測、pk 配對與附件。倉管可直接在網頁新增修改。 掃描/(g) 彰化倉庫紀錄文件/a6-1 貿易入庫紀錄.html">
+        <div class="card-head"><span class="code">A6-1</span><span class="kind k-cloud-edit" title="開啟即讀雲端資料庫，網頁上可新增修改">雲端可編輯</span></div>
+        <div class="name">貿易入庫紀錄</div>
+        <div class="desc">倉庫收貨實測登記（雲端 a61）：採購預建列、倉管補實收／實測、PK 配對與附件。倉管可直接在網頁新增修改。</div>
+        <div class="meta">掃描/(G) 彰化倉庫紀錄文件/A6-1 貿易入庫紀錄.html · 2.1 MB</div>
+      </a>
+      <a class="card" href="%E6%8E%83%E6%8F%8F/%28G%29%20%E5%BD%B0%E5%8C%96%E5%80%89%E5%BA%AB%E7%B4%80%E9%8C%84%E6%96%87%E4%BB%B6/A6-3%20%E8%B2%A8%E6%9E%B6%E5%84%B2%E4%BD%8D%E5%BA%AB%E5%AD%98%E7%B3%BB%E7%B5%B1%20Shelf%20Inventory.html" data-s="a6-3 貨架儲位庫存系統 shelf inventory 辦公室層架儲位與條碼樣品存放對照（雲端 a63）；員工可放入、換位、取走。 掃描/(g) 彰化倉庫紀錄文件/a6-3 貨架儲位庫存系統 shelf inventory.html">
+        <div class="card-head"><span class="code">A6-3</span><span class="kind k-cloud-edit" title="開啟即讀雲端資料庫，網頁上可新增修改">雲端可編輯</span></div>
+        <div class="name">貨架儲位庫存系統 Shelf Inventory</div>
+        <div class="desc">辦公室層架儲位與條碼樣品存放對照（雲端 a63）；員工可放入、換位、取走。</div>
+        <div class="meta">掃描/(G) 彰化倉庫紀錄文件/A6-3 貨架儲位庫存系統 Shelf Inventory.html · 2.7 MB</div>
+      </a>
+      <a class="card" href="%E6%8E%83%E6%8F%8F/%28G%29%20%E5%BD%B0%E5%8C%96%E5%80%89%E5%BA%AB%E7%B4%80%E9%8C%84%E6%96%87%E4%BB%B6/B1-1%20%E5%87%BA%E8%B2%A8%E7%B3%BB%E7%B5%B1.html" data-s="b1-1 出貨系統 manufacture erp 彰化製造端開單系統（雲端 b11）：出貨單、客戶資訊面板、製造部門分析。 掃描/(g) 彰化倉庫紀錄文件/b1-1 出貨系統.html">
+        <div class="card-head"><span class="code">B1-1</span><span class="kind k-cloud-edit" title="開啟即讀雲端資料庫，網頁上可新增修改">雲端可編輯</span></div>
+        <div class="name">出貨系統 Manufacture ERP</div>
+        <div class="desc">彰化製造端開單系統（雲端 b11）：出貨單、客戶資訊面板、製造部門分析。</div>
+        <div class="meta">掃描/(G) 彰化倉庫紀錄文件/B1-1 出貨系統.html · 202 KB</div>
+      </a>
+      <a class="card" href="%E6%8E%83%E6%8F%8F/%28G%29%20%E5%BD%B0%E5%8C%96%E5%80%89%E5%BA%AB%E7%B4%80%E9%8C%84%E6%96%87%E4%BB%B6/D1%20%E4%BF%A1%E4%BB%B6%E6%A8%A3%E5%93%81%E6%94%B6%E7%99%BC%E7%B4%80%E9%8C%84.html" data-s="d1 信件樣品收發紀錄 收發室信件與樣品收發登錄（雲端 d1_rows）。 掃描/(g) 彰化倉庫紀錄文件/d1 信件樣品收發紀錄.html">
+        <div class="card-head"><span class="code">D1</span><span class="kind k-cloud-edit" title="開啟即讀雲端資料庫，網頁上可新增修改">雲端可編輯</span></div>
+        <div class="name">信件樣品收發紀錄</div>
+        <div class="desc">收發室信件與樣品收發登錄（雲端 d1_rows）。</div>
+        <div class="meta">掃描/(G) 彰化倉庫紀錄文件/D1 信件樣品收發紀錄.html · 86 KB</div>
+      </a>
+      <a class="card" href="%E6%8E%83%E6%8F%8F/%28G%29%20%E5%BD%B0%E5%8C%96%E5%80%89%E5%BA%AB%E7%B4%80%E9%8C%84%E6%96%87%E4%BB%B6/D2-1%20%E7%8F%BE%E5%A0%B4%E6%8E%92%E7%A8%8B%E7%B3%BB%E7%B5%B1.html" data-s="d2-1 現場排程系統 工廠現場「先預排、當天回填、月底匯出」排程（雲端 d21）：生產、貼標、裝櫃。 掃描/(g) 彰化倉庫紀錄文件/d2-1 現場排程系統.html">
+        <div class="card-head"><span class="code">D2-1</span><span class="kind k-cloud" title="開啟即讀雲端資料庫，隨時最新">雲端即時</span></div>
+        <div class="name">現場排程系統</div>
+        <div class="desc">工廠現場「先預排、當天回填、月底匯出」排程（雲端 d21）：生產、貼標、裝櫃。</div>
+        <div class="meta">掃描/(G) 彰化倉庫紀錄文件/D2-1 現場排程系統.html · 445 KB</div>
+      </a>
+    </div>
+  </section>
+  <section class="group">
+    <h2>行政與財務 Administration &amp; Finance<span class="n">8</span></h2>
+    <div class="grid">
+      <a class="card" href="%28D%29%20%E8%A1%8C%E6%94%BF%E8%B3%87%E6%96%99%20Administration/D5-1%20%E6%96%87%E4%BB%B6%E7%B8%BD%E8%A1%A8.html" data-s="d5-1 文件總表 公司文件編號總表、系統清單、流程圖與商標到期追蹤（只能瀏覽）。 (d) 行政資料 administration/d5-1 文件總表.html">
+        <div class="card-head"><span class="code">D5-1</span><span class="kind k-snapshot" title="資料內嵌於檔案，截至同步日">單檔快照</span></div>
+        <div class="name">文件總表</div>
+        <div class="desc">公司文件編號總表、系統清單、流程圖與商標到期追蹤（只能瀏覽）。</div>
+        <div class="meta">(D) 行政資料 Administration/D5-1 文件總表.html · 81 KB</div>
+      </a>
+      <a class="card" href="%28D%29%20%E8%A1%8C%E6%94%BF%E8%B3%87%E6%96%99%20Administration/G2-1%20%E9%80%B2%E9%8A%B7%E8%B2%A8%E7%B0%BF%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7.html" data-s="g2-1 進銷貨簿管理工具 進貨簿／銷貨簿標籤頁次索引與公司開票資料卡（單機存回檔案，github 版僅供瀏覽）。 (d) 行政資料 administration/g2-1 進銷貨簿管理工具.html">
+        <div class="card-head"><span class="code">G2-1</span><span class="kind k-local-edit" title="原檔會存回自身；GitHub 版僅供瀏覽">單機工具</span></div>
+        <div class="name">進銷貨簿管理工具</div>
+        <div class="desc">進貨簿／銷貨簿標籤頁次索引與公司開票資料卡（單機存回檔案，GitHub 版僅供瀏覽）。</div>
+        <div class="meta">(D) 行政資料 Administration/G2-1 進銷貨簿管理工具.html · 922 KB</div>
+      </a>
+      <a class="card" href="%28D%29%20%E8%A1%8C%E6%94%BF%E8%B3%87%E6%96%99%20Administration/G2-2%20%E9%9B%BB%E5%AD%90%E9%80%B2%E8%B2%A8%E7%B0%BF%20Purchase%20Ledger.html" data-s="g2-2 電子進貨簿 purchase ledger 進貨簿唯讀檢視：紙本照片、交易群組、採購勾稽與 ocr 校正。 (d) 行政資料 administration/g2-2 電子進貨簿 purchase ledger.html">
+        <div class="card-head"><span class="code">G2-2</span><span class="kind k-snapshot" title="資料內嵌於檔案，截至同步日">單檔快照</span></div>
+        <div class="name">電子進貨簿 Purchase Ledger</div>
+        <div class="desc">進貨簿唯讀檢視：紙本照片、交易群組、採購勾稽與 OCR 校正。</div>
+        <div class="meta">(D) 行政資料 Administration/G2-2 電子進貨簿 Purchase Ledger.html · 17.2 MB</div>
+      </a>
+      <a class="card" href="%28D%29%20%E8%A1%8C%E6%94%BF%E8%B3%87%E6%96%99%20Administration/G2-3%20%E9%9B%BB%E5%AD%90%E9%8A%B7%E8%B2%A8%E7%B0%BF%20Sales%20Ledger.html" data-s="g2-3 電子銷貨簿 sales ledger 營業稅申報用電子銷貨明細。 (d) 行政資料 administration/g2-3 電子銷貨簿 sales ledger.html">
+        <div class="card-head"><span class="code">G2-3</span><span class="kind k-snapshot" title="資料內嵌於檔案，截至同步日">單檔快照</span></div>
+        <div class="name">電子銷貨簿 Sales Ledger</div>
+        <div class="desc">營業稅申報用電子銷貨明細。</div>
+        <div class="meta">(D) 行政資料 Administration/G2-3 電子銷貨簿 Sales Ledger.html · 4.5 MB</div>
+      </a>
+      <a class="card" href="%28F%29%20%E5%85%AC%E5%8F%B8%E8%B3%87%E6%96%99%20Company/%28F%29%20%E8%B2%A1%E5%8B%99%E6%9C%83%E8%A8%88/%28%E4%B8%8D%E5%8F%AF%E5%A4%96%E6%B5%81%29%20%E5%85%B6%E4%BB%96%E8%B2%A1%E5%8B%99%E8%B3%87%E6%96%99/%E8%B2%A1%E5%8B%99%E5%88%86%E6%9E%90%E8%88%87%E5%84%80%E8%A1%A8%E6%9D%BF%20Financial%20Analysis%20and%20Dashboards/F5-1%20%E5%AF%AC%E9%81%94%E8%B2%A1%E5%8B%99%E7%AE%A1%E7%90%86%E5%84%80%E8%A1%A8%E6%9D%BF%20Financial%20Management%20Dashboard.html" data-s="f5-1 寬達財務管理儀表板 公司總覽／應收應付／月度現金流／貸款／投資／製造／華安／資料品質八頁。不可外流。 (f) 公司資料 company/(f) 財務會計/(不可外流) 其他財務資料/財務分析與儀表板 financial analysis and dashboards/f5-1 寬達財務管理儀表板 financial management dashboard.html">
+        <div class="card-head"><span class="code">F5-1</span><span class="kind k-snapshot" title="資料內嵌於檔案，截至同步日">單檔快照</span></div>
+        <div class="name">寬達財務管理儀表板</div>
+        <div class="desc">公司總覽／應收應付／月度現金流／貸款／投資／製造／華安／資料品質八頁。不可外流。</div>
+        <div class="meta">(F) 公司資料 Company/(F) 財務會計/(不可外流) 其他財務資料/財務分析與儀表板 Financial Analysis and Dashboards/F5-1 寬達財務管理儀表板 Financial Management Dashboard.html · 117 KB</div>
+      </a>
+      <a class="card" href="%28F%29%20%E5%85%AC%E5%8F%B8%E8%B3%87%E6%96%99%20Company/%28F%29%20%E8%B2%A1%E5%8B%99%E6%9C%83%E8%A8%88/%28%E4%B8%8D%E5%8F%AF%E5%A4%96%E6%B5%81%29%20%E5%85%B6%E4%BB%96%E8%B2%A1%E5%8B%99%E8%B3%87%E6%96%99/%E8%B2%A1%E5%8B%99%E5%88%86%E6%9E%90%E8%88%87%E5%84%80%E8%A1%A8%E6%9D%BF%20Financial%20Analysis%20and%20Dashboards/F5-2%20%E7%8F%BE%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8%E6%95%B4%E5%90%88%202022-2026%20Cash%20Flow%20Statements.html" data-s="f5-2 現金流量表整合 2022-2026 五年統一格式現金流量表：營業／貸款分離、流水帳、月度明細、外帳專區。不可外流。 (f) 公司資料 company/(f) 財務會計/(不可外流) 其他財務資料/財務分析與儀表板 financial analysis and dashboards/f5-2 現金流量表整合 2022-2026 cash flow statements.html">
+        <div class="card-head"><span class="code">F5-2</span><span class="kind k-snapshot" title="資料內嵌於檔案，截至同步日">單檔快照</span></div>
+        <div class="name">現金流量表整合 2022-2026</div>
+        <div class="desc">五年統一格式現金流量表：營業／貸款分離、流水帳、月度明細、外帳專區。不可外流。</div>
+        <div class="meta">(F) 公司資料 Company/(F) 財務會計/(不可外流) 其他財務資料/財務分析與儀表板 Financial Analysis and Dashboards/F5-2 現金流量表整合 2022-2026 Cash Flow Statements.html · 6.1 MB</div>
+      </a>
+      <a class="card" href="%28F%29%20%E5%85%AC%E5%8F%B8%E8%B3%87%E6%96%99%20Company/%28F%29%20%E8%B2%A1%E5%8B%99%E6%9C%83%E8%A8%88/%28%E4%B8%8D%E5%8F%AF%E5%A4%96%E6%B5%81%29%20%E5%85%B6%E4%BB%96%E8%B2%A1%E5%8B%99%E8%B3%87%E6%96%99/%E8%B2%A1%E5%8B%99%E5%88%86%E6%9E%90%E8%88%87%E5%84%80%E8%A1%A8%E6%9D%BF%20Financial%20Analysis%20and%20Dashboards/F5-3%20%E5%90%84%E5%B8%B3%E6%88%B6%E6%AF%8F%E6%97%A5%E9%A4%98%E9%A1%8D%E8%AE%8A%E5%8B%95%20Daily%20Account%20Balance%20History.html" data-s="f5-3 各帳戶每日餘額變動 2022–2026 各帳戶／幣別每日餘額序列與來源狀態。不可外流。 (f) 公司資料 company/(f) 財務會計/(不可外流) 其他財務資料/財務分析與儀表板 financial analysis and dashboards/f5-3 各帳戶每日餘額變動 daily account balance history.html">
+        <div class="card-head"><span class="code">F5-3</span><span class="kind k-snapshot" title="資料內嵌於檔案，截至同步日">單檔快照</span></div>
+        <div class="name">各帳戶每日餘額變動</div>
+        <div class="desc">2022–2026 各帳戶／幣別每日餘額序列與來源狀態。不可外流。</div>
+        <div class="meta">(F) 公司資料 Company/(F) 財務會計/(不可外流) 其他財務資料/財務分析與儀表板 Financial Analysis and Dashboards/F5-3 各帳戶每日餘額變動 Daily Account Balance History.html · 14.2 MB</div>
+      </a>
+      <a class="card" href="%28F%29%20%E5%85%AC%E5%8F%B8%E8%B3%87%E6%96%99%20Company/%28F%29%20%E8%B2%A1%E5%8B%99%E6%9C%83%E8%A8%88/%28%E4%B8%8D%E5%8F%AF%E5%A4%96%E6%B5%81%29%20%E5%85%B6%E4%BB%96%E8%B2%A1%E5%8B%99%E8%B3%87%E6%96%99/%E8%B2%A1%E5%8B%99%E5%88%86%E6%9E%90%E8%88%87%E5%84%80%E8%A1%A8%E6%9D%BF%20Financial%20Analysis%20and%20Dashboards/F5-4%20%E5%85%A8%E8%A1%8C%E7%8F%BE%E9%87%91%E8%88%87%E8%B2%B8%E6%AC%BE%E7%8F%BE%E9%87%91%E6%B5%81%E7%B8%BD%E8%A6%BD%20Cash%20and%20Loan%20Flow%20Overview.html" data-s="f5-4 全行現金與貸款現金流總覽 跨銀行現金與貸款流向總覽。不可外流。 (f) 公司資料 company/(f) 財務會計/(不可外流) 其他財務資料/財務分析與儀表板 financial analysis and dashboards/f5-4 全行現金與貸款現金流總覽 cash and loan flow overview.html">
+        <div class="card-head"><span class="code">F5-4</span><span class="kind k-snapshot" title="資料內嵌於檔案，截至同步日">單檔快照</span></div>
+        <div class="name">全行現金與貸款現金流總覽</div>
+        <div class="desc">跨銀行現金與貸款流向總覽。不可外流。</div>
+        <div class="meta">(F) 公司資料 Company/(F) 財務會計/(不可外流) 其他財務資料/財務分析與儀表板 Financial Analysis and Dashboards/F5-4 全行現金與貸款現金流總覽 Cash and Loan Flow Overview.html · 60 KB</div>
+      </a>
+    </div>
+  </section>
+  <section class="group">
+    <h2>華安工廠與夢次元 Hua&#x27;an &amp; Yumeverse<span class="n">4</span></h2>
+    <div class="grid">
+      <a class="card" href="%28I%29%20%E8%8F%AF%E5%AE%89%E5%B7%A5%E5%BB%A0%20Hua%27an%20Factory/%28f%29%20%E5%8D%8E%E5%AE%89%E5%85%AC%E5%8F%B8%E8%B5%84%E6%96%99/%E5%8D%8E%E5%AE%89%E5%85%AC%E5%8F%B8%E8%B4%A2%E5%8A%A1/01_%E5%88%86%E6%9E%90%E5%A0%B1%E5%91%8A%20Analysis%20Reports/HF-03_202607_%E8%8F%AF%E5%AE%89%E5%B7%A5%E5%BB%A0%E7%8F%BE%E9%87%91%E6%B5%81%E9%87%8F%E8%A9%95%E4%BC%B0%E5%A0%B1%E5%91%8A%20Hua%27an%20Cash%20Flow%20Assessment.html" data-s="hf-03 華安工廠現金流量評估報告 華安工廠 2026.07 現金流量評估。 (i) 華安工廠 hua&#x27;an factory/(f) 华安公司资料/华安公司财务/01_分析報告 analysis reports/hf-03_202607_華安工廠現金流量評估報告 hua&#x27;an cash flow assessment.html">
+        <div class="card-head"><span class="code">HF-03</span><span class="kind k-snapshot" title="資料內嵌於檔案，截至同步日">單檔快照</span></div>
+        <div class="name">華安工廠現金流量評估報告</div>
+        <div class="desc">華安工廠 2026.07 現金流量評估。</div>
+        <div class="meta">(I) 華安工廠 Hua&#x27;an Factory/(f) 华安公司资料/华安公司财务/01_分析報告 Analysis Reports/HF-03_202607_華安工廠現金流量評估報告 Hua&#x27;an Cash Flow Assessment.html · 20 KB</div>
+      </a>
+      <a class="card" href="%28I%29%20%E8%8F%AF%E5%AE%89%E5%B7%A5%E5%BB%A0%20Hua%27an%20Factory/%28f%29%20%E5%8D%8E%E5%AE%89%E5%85%AC%E5%8F%B8%E8%B5%84%E6%96%99/%E5%8D%8E%E5%AE%89%E5%85%AC%E5%8F%B8%E8%B4%A2%E5%8A%A1/01_%E5%88%86%E6%9E%90%E5%A0%B1%E5%91%8A%20Analysis%20Reports/HF-03_202607_%E8%8F%AF%E5%AE%89%E5%B7%A5%E5%BB%A0%E7%9B%88%E5%88%A9%E8%83%BD%E5%8A%9B%E5%88%86%E6%9E%90%202021-2026%20Hua%27an%20Profitability%20Analysis.html" data-s="hf-03 華安工廠盈利能力分析 2021-2026 華安工廠五年盈利能力分析。 (i) 華安工廠 hua&#x27;an factory/(f) 华安公司资料/华安公司财务/01_分析報告 analysis reports/hf-03_202607_華安工廠盈利能力分析 2021-2026 hua&#x27;an profitability analysis.html">
+        <div class="card-head"><span class="code">HF-03</span><span class="kind k-snapshot" title="資料內嵌於檔案，截至同步日">單檔快照</span></div>
+        <div class="name">華安工廠盈利能力分析 2021-2026</div>
+        <div class="desc">華安工廠五年盈利能力分析。</div>
+        <div class="meta">(I) 華安工廠 Hua&#x27;an Factory/(f) 华安公司资料/华安公司财务/01_分析報告 Analysis Reports/HF-03_202607_華安工廠盈利能力分析 2021-2026 Hua&#x27;an Profitability Analysis.html · 17 KB</div>
+      </a>
+      <a class="card" href="%E6%8E%83%E6%8F%8F/%E5%A4%A2%E6%AC%A1%E5%85%83%E6%A5%AD%E5%8B%99%E8%B3%87%E6%96%99/%E5%A4%A2%E6%AC%A1%E5%85%83%20%E7%87%9F%E9%81%8B%E7%B8%BD%E8%A1%A8.html" data-s="夢次元 夢次元 營運總表 夢次元（yumeverse）ip 專案營運總表。 掃描/夢次元業務資料/夢次元 營運總表.html">
+        <div class="card-head"><span class="code">夢次元</span><span class="kind k-snapshot" title="資料內嵌於檔案，截至同步日">單檔快照</span></div>
+        <div class="name">夢次元 營運總表</div>
+        <div class="desc">夢次元（Yumeverse）IP 專案營運總表。</div>
+        <div class="meta">掃描/夢次元業務資料/夢次元 營運總表.html · 139 KB</div>
+      </a>
+      <a class="card" href="%28D%29%20%E8%A1%8C%E6%94%BF%E8%B3%87%E6%96%99%20Administration/%28L%29%20%E5%85%AC%E5%8F%B8%E5%95%86%E6%A8%99%E5%8F%8A%E8%A8%AD%E8%A8%88%20Logo%20%26%20Design/IP%E8%A8%AD%E8%A8%88%E9%A2%A8%E6%A0%BC%E8%A6%8F%E7%AF%84/Yumeverse%20%E5%A4%A2%E6%AC%A1%E5%85%83%E8%A8%98%E5%B8%B3%20App_%E7%A4%BA%E6%84%8F%E7%89%88.html" data-s="yumeverse 夢次元記帳 app 示意版 夢次元記帳 app 介面示意。 (d) 行政資料 administration/(l) 公司商標及設計 logo &amp; design/ip設計風格規範/yumeverse 夢次元記帳 app_示意版.html">
+        <div class="card-head"><span class="code">Yumeverse</span><span class="kind k-doc" title="靜態文件">規範／手冊</span></div>
+        <div class="name">夢次元記帳 App 示意版</div>
+        <div class="desc">夢次元記帳 App 介面示意。</div>
+        <div class="meta">(D) 行政資料 Administration/(L) 公司商標及設計 Logo &amp; Design/IP設計風格規範/Yumeverse 夢次元記帳 App_示意版.html · 72 KB</div>
+      </a>
+    </div>
+  </section>
+  <section class="group">
+    <h2>設計規範與手冊 Design Specs &amp; Manuals<span class="n">10</span></h2>
+    <div class="grid">
+      <a class="card" href="%28D%29%20%E8%A1%8C%E6%94%BF%E8%B3%87%E6%96%99%20Administration/%28L%29%20%E5%85%AC%E5%8F%B8%E5%95%86%E6%A8%99%E5%8F%8A%E8%A8%AD%E8%A8%88%20Logo%20%26%20Design/%E6%97%A5%E6%9C%AC%E5%AE%98%E6%96%B9%E7%B6%B2%E7%AB%99%E8%A8%AD%E8%A8%88%E8%A6%8F%E7%AF%84/%E5%AF%AC%E9%81%94%E5%95%86%E4%BA%8B_Style-Guide.html" data-s="設計 寬達商事 style guide（日本官網設計規範） 公司 html 一律套用的色彩、字級、版面與元件樣張。 (d) 行政資料 administration/(l) 公司商標及設計 logo &amp; design/日本官方網站設計規範/寬達商事_style-guide.html">
+        <div class="card-head"><span class="code">設計</span><span class="kind k-doc" title="靜態文件">規範／手冊</span></div>
+        <div class="name">寬達商事 Style Guide（日本官網設計規範）</div>
+        <div class="desc">公司 HTML 一律套用的色彩、字級、版面與元件樣張。</div>
+        <div class="meta">(D) 行政資料 Administration/(L) 公司商標及設計 Logo &amp; Design/日本官方網站設計規範/寬達商事_Style-Guide.html · 34 KB</div>
+      </a>
+      <a class="card" href="%28D%29%20%E8%A1%8C%E6%94%BF%E8%B3%87%E6%96%99%20Administration/%28L%29%20%E5%85%AC%E5%8F%B8%E5%95%86%E6%A8%99%E5%8F%8A%E8%A8%AD%E8%A8%88%20Logo%20%26%20Design/%E5%8F%B0%E7%81%A3%E5%AE%98%E6%96%B9%E7%B6%B2%E7%AB%99%E8%A8%AD%E8%A8%88%E8%A6%8F%E7%AF%84/ground-biotech-style-guide.html" data-s="設計 ground biotech style guide（台灣官網設計規範） 台灣官方網站設計規範樣張。 (d) 行政資料 administration/(l) 公司商標及設計 logo &amp; design/台灣官方網站設計規範/ground-biotech-style-guide.html">
+        <div class="card-head"><span class="code">設計</span><span class="kind k-doc" title="靜態文件">規範／手冊</span></div>
+        <div class="name">Ground Biotech Style Guide（台灣官網設計規範）</div>
+        <div class="desc">台灣官方網站設計規範樣張。</div>
+        <div class="meta">(D) 行政資料 Administration/(L) 公司商標及設計 Logo &amp; Design/台灣官方網站設計規範/ground-biotech-style-guide.html · 28 KB</div>
+      </a>
+      <a class="card" href="%28D%29%20%E8%A1%8C%E6%94%BF%E8%B3%87%E6%96%99%20Administration/%28L%29%20%E5%85%AC%E5%8F%B8%E5%95%86%E6%A8%99%E5%8F%8A%E8%A8%AD%E8%A8%88%20Logo%20%26%20Design/%E5%AF%AC%E9%81%94%E8%A1%8C%E6%94%BF%E6%96%87%E4%BB%B6%E8%A8%AD%E8%A8%88%E8%A6%8F%E7%AF%84/%E5%AF%AC%E9%81%94%E6%96%87%E4%BB%B6%E6%A8%A1%E6%9D%BF%E8%A8%AD%E8%A8%88.html" data-s="設計 寬達文件模板設計 document design spec 對外文件（報價單／pi／pk／模板）的設計規範：紙本黑白與網站藍白、字級、功能色、表格鐵則。 (d) 行政資料 administration/(l) 公司商標及設計 logo &amp; design/寬達行政文件設計規範/寬達文件模板設計.html">
+        <div class="card-head"><span class="code">設計</span><span class="kind k-doc" title="靜態文件">規範／手冊</span></div>
+        <div class="name">寬達文件模板設計 Document Design Spec</div>
+        <div class="desc">對外文件（報價單／PI／PK／模板）的設計規範：紙本黑白與網站藍白、字級、功能色、表格鐵則。</div>
+        <div class="meta">(D) 行政資料 Administration/(L) 公司商標及設計 Logo &amp; Design/寬達行政文件設計規範/寬達文件模板設計.html · 284 KB</div>
+      </a>
+      <a class="card" href="%28D%29%20%E8%A1%8C%E6%94%BF%E8%B3%87%E6%96%99%20Administration/%28L%29%20%E5%85%AC%E5%8F%B8%E5%95%86%E6%A8%99%E5%8F%8A%E8%A8%AD%E8%A8%88%20Logo%20%26%20Design/%E5%AF%AC%E9%81%94%E7%8F%BE%E5%A0%B4%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8A%E8%A8%AD%E8%A8%88%E8%A6%8F%E7%AF%84/%E5%AF%AC%E9%81%94%E7%8F%BE%E5%A0%B4%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8A%E8%A8%AD%E8%A8%88.html" data-s="設計 寬達現場操作手冊設計 現場操作手冊的版面與元件規範。 (d) 行政資料 administration/(l) 公司商標及設計 logo &amp; design/寬達現場操作手冊設計規範/寬達現場操作手冊設計.html">
+        <div class="card-head"><span class="code">設計</span><span class="kind k-doc" title="靜態文件">規範／手冊</span></div>
+        <div class="name">寬達現場操作手冊設計</div>
+        <div class="desc">現場操作手冊的版面與元件規範。</div>
+        <div class="meta">(D) 行政資料 Administration/(L) 公司商標及設計 Logo &amp; Design/寬達現場操作手冊設計規範/寬達現場操作手冊設計.html · 75 KB</div>
+      </a>
+      <a class="card" href="%28D%29%20%E8%A1%8C%E6%94%BF%E8%B3%87%E6%96%99%20Administration/%28L%29%20%E5%85%AC%E5%8F%B8%E5%95%86%E6%A8%99%E5%8F%8A%E8%A8%AD%E8%A8%88%20Logo%20%26%20Design/IP%E8%A8%AD%E8%A8%88%E9%A2%A8%E6%A0%BC%E8%A6%8F%E7%AF%84/Yumeverse%20IP%20StyleGuide_v2.0.html" data-s="設計 yumeverse ip styleguide v2.0 夢次元 ip 視覺風格規範。 (d) 行政資料 administration/(l) 公司商標及設計 logo &amp; design/ip設計風格規範/yumeverse ip styleguide_v2.0.html">
+        <div class="card-head"><span class="code">設計</span><span class="kind k-doc" title="靜態文件">規範／手冊</span></div>
+        <div class="name">Yumeverse IP StyleGuide v2.0</div>
+        <div class="desc">夢次元 IP 視覺風格規範。</div>
+        <div class="meta">(D) 行政資料 Administration/(L) 公司商標及設計 Logo &amp; Design/IP設計風格規範/Yumeverse IP StyleGuide_v2.0.html · 874 KB</div>
+      </a>
+      <a class="card" href="%28D%29%20%E8%A1%8C%E6%94%BF%E8%B3%87%E6%96%99%20Administration/%28L%29%20%E5%85%AC%E5%8F%B8%E5%95%86%E6%A8%99%E5%8F%8A%E8%A8%AD%E8%A8%88%20Logo%20%26%20Design/IP%E8%A8%AD%E8%A8%88%E9%A2%A8%E6%A0%BC%E8%A6%8F%E7%AF%84/Yumeverse%20%E4%BA%BA%E7%89%A9%E8%A8%AD%E8%A8%88%E6%8C%87%E5%8D%97%20Character%20Guide_v2.0.html" data-s="設計 yumeverse 人物設計指南 v2.0 夢次元角色設定與人物設計指南。 (d) 行政資料 administration/(l) 公司商標及設計 logo &amp; design/ip設計風格規範/yumeverse 人物設計指南 character guide_v2.0.html">
+        <div class="card-head"><span class="code">設計</span><span class="kind k-doc" title="靜態文件">規範／手冊</span></div>
+        <div class="name">Yumeverse 人物設計指南 v2.0</div>
+        <div class="desc">夢次元角色設定與人物設計指南。</div>
+        <div class="meta">(D) 行政資料 Administration/(L) 公司商標及設計 Logo &amp; Design/IP設計風格規範/Yumeverse 人物設計指南 Character Guide_v2.0.html · 459 KB</div>
+      </a>
+      <a class="card" href="%28D%29%20%E8%A1%8C%E6%94%BF%E8%B3%87%E6%96%99%20Administration/D4-1%20%E8%B2%BF%E6%98%93%E9%83%A8%E9%96%80%E6%96%B0%E4%BA%BA%E5%9F%B9%E8%A8%93%E6%89%8B%E5%86%8A%20%28%E4%BA%92%E5%8B%95%E7%89%88%29.html" data-s="d4-1 貿易部門新人培訓手冊（互動版） 貿易部門新人培訓的互動式手冊。 (d) 行政資料 administration/d4-1 貿易部門新人培訓手冊 (互動版).html">
+        <div class="card-head"><span class="code">D4-1</span><span class="kind k-doc" title="靜態文件">規範／手冊</span></div>
+        <div class="name">貿易部門新人培訓手冊（互動版）</div>
+        <div class="desc">貿易部門新人培訓的互動式手冊。</div>
+        <div class="meta">(D) 行政資料 Administration/D4-1 貿易部門新人培訓手冊 (互動版).html · 253 KB</div>
+      </a>
+      <a class="card" href="%28D%29%20%E8%A1%8C%E6%94%BF%E8%B3%87%E6%96%99%20Administration/%28S%29%20SOP%E8%AA%AA%E6%98%8E%E6%96%87%E4%BB%B6/%E5%9C%8B%E8%B2%BF%E8%88%87AI%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B_%E5%9C%96%E8%A7%A3.html" data-s="sop 國貿與 ai 工作流程圖解 國貿作業與 ai 協作的流程圖解。 (d) 行政資料 administration/(s) sop說明文件/國貿與ai工作流程_圖解.html">
+        <div class="card-head"><span class="code">SOP</span><span class="kind k-doc" title="靜態文件">規範／手冊</span></div>
+        <div class="name">國貿與 AI 工作流程圖解</div>
+        <div class="desc">國貿作業與 AI 協作的流程圖解。</div>
+        <div class="meta">(D) 行政資料 Administration/(S) SOP說明文件/國貿與AI工作流程_圖解.html · 29 KB</div>
+      </a>
+      <a class="card" href="%28D%29%20%E8%A1%8C%E6%94%BF%E8%B3%87%E6%96%99%20Administration/%28M%29%20%E7%B6%B2%E8%B7%AF%E8%A1%8C%E9%8A%B7%20Online%20Marketing/B2B%20%E7%B6%B2%E8%B7%AF%E8%A1%8C%E9%8A%B7%E5%B0%88%E6%A1%88%20B2B%20Online%20Marketing.html" data-s="行銷 b2b 網路行銷專案 b2b 網路行銷專案說明頁。 (d) 行政資料 administration/(m) 網路行銷 online marketing/b2b 網路行銷專案 b2b online marketing.html">
+        <div class="card-head"><span class="code">行銷</span><span class="kind k-doc" title="靜態文件">規範／手冊</span></div>
+        <div class="name">B2B 網路行銷專案</div>
+        <div class="desc">B2B 網路行銷專案說明頁。</div>
+        <div class="meta">(D) 行政資料 Administration/(M) 網路行銷 Online Marketing/B2B 網路行銷專案 B2B Online Marketing.html · 57 KB</div>
+      </a>
+      <a class="card" href="%28D%29%20%E8%A1%8C%E6%94%BF%E8%B3%87%E6%96%99%20Administration/%28E%29%20%E6%A5%AD%E5%8B%99%E6%8E%A8%E5%BB%A3%E8%B3%87%E6%96%99%20Sales%20Material/%E5%85%AC%E5%8F%B8%E7%B0%A1%E4%BB%8B%20Company%20Profile/Ground%20Biotech_Company%20Profile_2026.09.18_source.html" data-s="簡介 ground biotech 公司簡介 2026.09.18 公司簡介網頁版原稿。 (d) 行政資料 administration/(e) 業務推廣資料 sales material/公司簡介 company profile/ground biotech_company profile_2026.09.18_source.html">
+        <div class="card-head"><span class="code">簡介</span><span class="kind k-doc" title="靜態文件">規範／手冊</span></div>
+        <div class="name">Ground Biotech 公司簡介 2026.09.18</div>
+        <div class="desc">公司簡介網頁版原稿。</div>
+        <div class="meta">(D) 行政資料 Administration/(E) 業務推廣資料 Sales Material/公司簡介 Company Profile/Ground Biotech_Company Profile_2026.09.18_source.html · 1.5 MB</div>
+      </a>
+    </div>
+  </section>
+  <div class="empty" id="empty">沒有符合的項目</div>
+</main>
+<footer class="wrap">寬達生技 Ground Biotech · 入口頁由 _site/build_index.py 依 _site/catalog.json 產生；新增或搬移 HTML 後請重新執行。</footer>
+<script>
+(function () {
+  var q = document.getElementById('q'), shown = document.getElementById('shown'), empty = document.getElementById('empty');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
+  var groups = Array.prototype.slice.call(document.querySelectorAll('.group'));
+  function run() {
+    var t = q.value.trim().toLowerCase(), n = 0;
+    cards.forEach(function (c) {
+      var ok = !t || c.getAttribute('data-s').indexOf(t) !== -1;
+      c.classList.toggle('hide', !ok); if (ok) n++;
+    });
+    groups.forEach(function (g) {
+      g.classList.toggle('hide', g.querySelectorAll('.card:not(.hide)').length === 0);
+    });
+    shown.textContent = n; empty.classList.toggle('show', n === 0);
+  }
+  q.addEventListener('input', run);
+  if (location.hash.length > 1) { q.value = decodeURIComponent(location.hash.slice(1)); run(); }
+})();
+</script>
+</body>
+</html>

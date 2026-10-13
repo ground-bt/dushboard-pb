@@ -1,0 +1,75 @@
+{
+  "title": "寬達生技 Ground Biotech — 公司 HTML 入口",
+  "note": "本 repo 是 OneDrive 正本的鏡像。雲端型面板開啟後即時讀 Supabase；單檔快照型的資料截至同步日。資料以 OneDrive 正本與雲端資料庫為準。",
+  "groups": [
+    {
+      "name": "採購與供應商 Purchasing",
+      "items": [
+        {"code": "A2-1a", "name": "台灣產品報價資料庫", "path": "(C) 採購資料 Purchasing/A2-1a 台灣產品報價資料庫.html", "kind": "cloud", "desc": "台灣線主資料庫（雲端 a21a）。三系統合併面板：產品報價庫／供應商名錄／報價單登記表；原廠與批發商價切換、賣過國家旗標。內含供應商銀行資料，請勿外流。"},
+        {"code": "A2-1c", "name": "日本產品報價資料庫", "path": "(C) 採購資料 Purchasing/A2-1c 日本產品報價資料庫.html", "kind": "cloud", "desc": "日本線主資料庫（雲端 a21c，6,500 多品項含縮圖），JPY／USD 切換；分頁含報價單登記表。"},
+        {"code": "A3a-1", "name": "OEM 庫存統計表", "path": "(C) 採購資料 Purchasing/(I) 庫存管理 Inventory Management/A3a-1 OEM庫存統計表.html", "kind": "cloud", "desc": "OEM 包材庫存（雲端 a3a）：PI／PK 扣帳、留樣、警報線與 POEM 採購單派號；待開採購單板塊。"},
+        {"code": "A4-2", "name": "採購進度追蹤", "path": "(C) 採購資料 Purchasing/A4-2 採購進度追蹤.html", "kind": "cloud", "desc": "採購單進度（雲端 a42）：進行中／到貨面板／已結束／金額統計，結關倒數與待匯款、退稅、取消標示。"},
+        {"code": "A4-3", "name": "台灣批發商比價儀表板", "path": "(C) 採購資料 Purchasing/(STW) 台灣供應商資料 Taiwan Supplier Folder/A4-3 台灣批發商比價儀表板 2026.09.30.html", "kind": "snapshot", "desc": "同一品項在不同批發商／原廠的報價比較，供選供應商用（a21a 快照，2026.09.30）。"},
+        {"code": "A4-4", "name": "產品採購價格歷史", "path": "(C) 採購資料 Purchasing/A4-4 產品採購價格歷史.html", "kind": "snapshot", "desc": "各產品歷次採購價格走勢。"}
+      ]
+    },
+    {
+      "name": "客戶與船務 Clients & Shipping",
+      "items": [
+        {"code": "A3-3", "name": "船務進度追蹤", "path": "(A) 客戶資料 Clients/A3-3 船務進度追蹤.html", "kind": "cloud", "desc": "出口訂單船務進度（雲端 a33_rows）：時間軸／表格／KPI／篩選／明細。"},
+        {"code": "A3-5", "name": "訂單變動履歷 Order Change History", "path": "(A) 客戶資料 Clients/A3-5 訂單變動履歷 Order Change History.html", "kind": "cloud", "desc": "PI／PK／CI／Order Form／採購單每份文件的建立、改版、改名履歷（a35_change_log）。"},
+        {"code": "A8-1", "name": "客戶進度追蹤", "path": "(A) 客戶資料 Clients/A8-1 客戶進度追蹤.html", "kind": "cloud", "desc": "共用事件圖的客戶層投影（雲端 a81）：客戶總覽與子事件。"},
+        {"code": "A8-3", "name": "客戶銷售分析面板", "path": "(A) 客戶資料 Clients/A8-3 客戶銷售分析面板.html", "kind": "snapshot", "desc": "出口客戶出貨事件、件數與金額走勢（衍生報表，以活系統為準）。"},
+        {"code": "A8-4", "name": "新客戶開發追蹤", "path": "(A) 客戶資料 Clients/A8-4 新客戶開發追蹤.html", "kind": "cloud", "desc": "潛在客戶與新客戶開發進度（2026-10-01 自 A8-1 分出）。"},
+        {"code": "Ebisu", "name": "美國 Ebisu 補貨週期分析與訂單預判", "path": "(A) 客戶資料 Clients/A_US 美國 (Ebisu)/美國Ebisu_補貨週期分析與訂單預判_2026.10.01.html", "kind": "snapshot", "desc": "美國客戶 Ebisu 的補貨週期與下單預判分析（2026.10.01）。"}
+      ]
+    },
+    {
+      "name": "彰化工廠與倉庫 Changhua Factory & Warehouse",
+      "items": [
+        {"code": "A6-1", "name": "貿易入庫紀錄", "path": "掃描/(G) 彰化倉庫紀錄文件/A6-1 貿易入庫紀錄.html", "kind": "cloud-edit", "desc": "倉庫收貨實測登記（雲端 a61）：採購預建列、倉管補實收／實測、PK 配對與附件。倉管可直接在網頁新增修改。"},
+        {"code": "A6-3", "name": "貨架儲位庫存系統 Shelf Inventory", "path": "掃描/(G) 彰化倉庫紀錄文件/A6-3 貨架儲位庫存系統 Shelf Inventory.html", "kind": "cloud-edit", "desc": "辦公室層架儲位與條碼樣品存放對照（雲端 a63）；員工可放入、換位、取走。"},
+        {"code": "B1-1", "name": "出貨系統 Manufacture ERP", "path": "掃描/(G) 彰化倉庫紀錄文件/B1-1 出貨系統.html", "kind": "cloud-edit", "desc": "彰化製造端開單系統（雲端 b11）：出貨單、客戶資訊面板、製造部門分析。"},
+        {"code": "D1", "name": "信件樣品收發紀錄", "path": "掃描/(G) 彰化倉庫紀錄文件/D1 信件樣品收發紀錄.html", "kind": "cloud-edit", "desc": "收發室信件與樣品收發登錄（雲端 d1_rows）。"},
+        {"code": "D2-1", "name": "現場排程系統", "path": "掃描/(G) 彰化倉庫紀錄文件/D2-1 現場排程系統.html", "kind": "cloud", "desc": "工廠現場「先預排、當天回填、月底匯出」排程（雲端 d21）：生產、貼標、裝櫃。"}
+      ]
+    },
+    {
+      "name": "行政與財務 Administration & Finance",
+      "items": [
+        {"code": "D5-1", "name": "文件總表", "path": "(D) 行政資料 Administration/D5-1 文件總表.html", "kind": "snapshot", "desc": "公司文件編號總表、系統清單、流程圖與商標到期追蹤（只能瀏覽）。"},
+        {"code": "G2-1", "name": "進銷貨簿管理工具", "path": "(D) 行政資料 Administration/G2-1 進銷貨簿管理工具.html", "kind": "local-edit", "desc": "進貨簿／銷貨簿標籤頁次索引與公司開票資料卡（單機存回檔案，GitHub 版僅供瀏覽）。"},
+        {"code": "G2-2", "name": "電子進貨簿 Purchase Ledger", "path": "(D) 行政資料 Administration/G2-2 電子進貨簿 Purchase Ledger.html", "kind": "snapshot", "desc": "進貨簿唯讀檢視：紙本照片、交易群組、採購勾稽與 OCR 校正。"},
+        {"code": "G2-3", "name": "電子銷貨簿 Sales Ledger", "path": "(D) 行政資料 Administration/G2-3 電子銷貨簿 Sales Ledger.html", "kind": "snapshot", "desc": "營業稅申報用電子銷貨明細。"},
+        {"code": "F5-1", "name": "寬達財務管理儀表板", "path": "(F) 公司資料 Company/(F) 財務會計/(不可外流) 其他財務資料/財務分析與儀表板 Financial Analysis and Dashboards/F5-1 寬達財務管理儀表板 Financial Management Dashboard.html", "kind": "snapshot", "desc": "公司總覽／應收應付／月度現金流／貸款／投資／製造／華安／資料品質八頁。不可外流。"},
+        {"code": "F5-2", "name": "現金流量表整合 2022-2026", "path": "(F) 公司資料 Company/(F) 財務會計/(不可外流) 其他財務資料/財務分析與儀表板 Financial Analysis and Dashboards/F5-2 現金流量表整合 2022-2026 Cash Flow Statements.html", "kind": "snapshot", "desc": "五年統一格式現金流量表：營業／貸款分離、流水帳、月度明細、外帳專區。不可外流。"},
+        {"code": "F5-3", "name": "各帳戶每日餘額變動", "path": "(F) 公司資料 Company/(F) 財務會計/(不可外流) 其他財務資料/財務分析與儀表板 Financial Analysis and Dashboards/F5-3 各帳戶每日餘額變動 Daily Account Balance History.html", "kind": "snapshot", "desc": "2022–2026 各帳戶／幣別每日餘額序列與來源狀態。不可外流。"},
+        {"code": "F5-4", "name": "全行現金與貸款現金流總覽", "path": "(F) 公司資料 Company/(F) 財務會計/(不可外流) 其他財務資料/財務分析與儀表板 Financial Analysis and Dashboards/F5-4 全行現金與貸款現金流總覽 Cash and Loan Flow Overview.html", "kind": "snapshot", "desc": "跨銀行現金與貸款流向總覽。不可外流。"}
+      ]
+    },
+    {
+      "name": "華安工廠與夢次元 Hua'an & Yumeverse",
+      "items": [
+        {"code": "HF-03", "name": "華安工廠現金流量評估報告", "path": "(I) 華安工廠 Hua'an Factory/(f) 华安公司资料/华安公司财务/01_分析報告 Analysis Reports/HF-03_202607_華安工廠現金流量評估報告 Hua'an Cash Flow Assessment.html", "kind": "snapshot", "desc": "華安工廠 2026.07 現金流量評估。"},
+        {"code": "HF-03", "name": "華安工廠盈利能力分析 2021-2026", "path": "(I) 華安工廠 Hua'an Factory/(f) 华安公司资料/华安公司财务/01_分析報告 Analysis Reports/HF-03_202607_華安工廠盈利能力分析 2021-2026 Hua'an Profitability Analysis.html", "kind": "snapshot", "desc": "華安工廠五年盈利能力分析。"},
+        {"code": "夢次元", "name": "夢次元 營運總表", "path": "掃描/夢次元業務資料/夢次元 營運總表.html", "kind": "snapshot", "desc": "夢次元（Yumeverse）IP 專案營運總表。"},
+        {"code": "Yumeverse", "name": "夢次元記帳 App 示意版", "path": "(D) 行政資料 Administration/(L) 公司商標及設計 Logo & Design/IP設計風格規範/Yumeverse 夢次元記帳 App_示意版.html", "kind": "doc", "desc": "夢次元記帳 App 介面示意。"}
+      ]
+    },
+    {
+      "name": "設計規範與手冊 Design Specs & Manuals",
+      "items": [
+        {"code": "設計", "name": "寬達商事 Style Guide（日本官網設計規範）", "path": "(D) 行政資料 Administration/(L) 公司商標及設計 Logo & Design/日本官方網站設計規範/寬達商事_Style-Guide.html", "kind": "doc", "desc": "公司 HTML 一律套用的色彩、字級、版面與元件樣張。"},
+        {"code": "設計", "name": "Ground Biotech Style Guide（台灣官網設計規範）", "path": "(D) 行政資料 Administration/(L) 公司商標及設計 Logo & Design/台灣官方網站設計規範/ground-biotech-style-guide.html", "kind": "doc", "desc": "台灣官方網站設計規範樣張。"},
+        {"code": "設計", "name": "寬達文件模板設計 Document Design Spec", "path": "(D) 行政資料 Administration/(L) 公司商標及設計 Logo & Design/寬達行政文件設計規範/寬達文件模板設計.html", "kind": "doc", "desc": "對外文件（報價單／PI／PK／模板）的設計規範：紙本黑白與網站藍白、字級、功能色、表格鐵則。"},
+        {"code": "設計", "name": "寬達現場操作手冊設計", "path": "(D) 行政資料 Administration/(L) 公司商標及設計 Logo & Design/寬達現場操作手冊設計規範/寬達現場操作手冊設計.html", "kind": "doc", "desc": "現場操作手冊的版面與元件規範。"},
+        {"code": "設計", "name": "Yumeverse IP StyleGuide v2.0", "path": "(D) 行政資料 Administration/(L) 公司商標及設計 Logo & Design/IP設計風格規範/Yumeverse IP StyleGuide_v2.0.html", "kind": "doc", "desc": "夢次元 IP 視覺風格規範。"},
+        {"code": "設計", "name": "Yumeverse 人物設計指南 v2.0", "path": "(D) 行政資料 Administration/(L) 公司商標及設計 Logo & Design/IP設計風格規範/Yumeverse 人物設計指南 Character Guide_v2.0.html", "kind": "doc", "desc": "夢次元角色設定與人物設計指南。"},
+        {"code": "D4-1", "name": "貿易部門新人培訓手冊（互動版）", "path": "(D) 行政資料 Administration/D4-1 貿易部門新人培訓手冊 (互動版).html", "kind": "doc", "desc": "貿易部門新人培訓的互動式手冊。"},
+        {"code": "SOP", "name": "國貿與 AI 工作流程圖解", "path": "(D) 行政資料 Administration/(S) SOP說明文件/國貿與AI工作流程_圖解.html", "kind": "doc", "desc": "國貿作業與 AI 協作的流程圖解。"},
+        {"code": "行銷", "name": "B2B 網路行銷專案", "path": "(D) 行政資料 Administration/(M) 網路行銷 Online Marketing/B2B 網路行銷專案 B2B Online Marketing.html", "kind": "doc", "desc": "B2B 網路行銷專案說明頁。"},
+        {"code": "簡介", "name": "Ground Biotech 公司簡介 2026.09.18", "path": "(D) 行政資料 Administration/(E) 業務推廣資料 Sales Material/公司簡介 Company Profile/Ground Biotech_Company Profile_2026.09.18_source.html", "kind": "doc", "desc": "公司簡介網頁版原稿。"}
+      ]
+    }
+  ]
+}
